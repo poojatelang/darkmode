@@ -16,6 +16,7 @@
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ReactNode, useEffect, useState } from "react";
 
+
 interface Props {
   children: ReactNode;
 }
@@ -31,5 +32,5 @@ export default function ThemeProvider({ children }: Props) {
     return <>{children}</>; // Avoid hydration mismatch
   }
 
-  return <NextThemesProvider attribute="class" defaultTheme="system">{children}</NextThemesProvider>;
+  return <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>{children}</NextThemesProvider>;
 }

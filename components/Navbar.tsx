@@ -52,12 +52,98 @@
 
 
 
+// "use client";
+// import { useEffect, useState } from "react";
+// import { useTheme } from "next-themes";
+
+// export default function Navbar() {
+//   const { theme, setTheme, resolvedTheme } = useTheme();
+//   const [mounted, setMounted] = useState(false);
+
+//   useEffect(() => {
+//     setMounted(true);
+//   }, []);
+
+//   return (
+//     <nav className="bg-gray-200 dark:bg-gray-800 p-4 flex justify-between items-center">
+//       <h1 className="text-xl font-bold text-gray-900 dark:text-white">Next.js App</h1>
+//       <div className="flex gap-4">
+//         <a href="/" className="text-gray-900 dark:text-white">
+//           Home
+//         </a>
+//         <a href="/about" className="text-gray-900 dark:text-white">
+//           About
+//         </a>
+//         <a href="/card" className="text-gray-900 dark:text-white">
+//           Card
+//         </a>
+
+//         {mounted && (
+//           <button
+//             onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+//             className="px-3 py-1 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded"
+//           >
+//             {resolvedTheme === "dark" ? "Light Mode" : "Dark Mode"}
+//           </button>
+//         )}
+//       </div>
+//     </nav>
+//   );
+// }
+
+
+// "use client";
+
+// import { useTheme } from "next-themes";
+// import { useEffect, useState } from "react";
+
+// export default function Navbar() {
+//   const { theme, setTheme, resolvedTheme } = useTheme();
+//   const [mounted, setMounted] = useState(false);
+
+//   useEffect(() => {
+//     setMounted(true);
+//   }, []);
+
+//   return (
+//     <nav className="bg-gray-200 dark:bg-gray-800 p-4 flex justify-between items-center shadow-md">
+//       <h1 className="text-xl font-bold text-gray-900 dark:text-white">Next.js App</h1>
+//       <div className="flex gap-4">
+//         <a href="/" className="text-gray-900 dark:text-white">Home</a>
+//         <a href="/about" className="text-gray-900 dark:text-white">About</a>
+//         <a href="/card" className="text-gray-900 dark:text-white">Card</a>
+
+//         {mounted && (
+//           <button
+//             onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+//             className="px-3 py-1 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded"
+//           >
+//             {resolvedTheme === "dark" ? "Light Mode" : "Dark Mode"}
+//           </button>
+//         )}
+//       </div>
+//     </nav>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
 "use client";
-import { useEffect, useState } from "react";
+
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -65,25 +151,24 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-gray-200 dark:bg-gray-800 p-4 flex justify-between items-center">
+    <nav className="bg-gray-200 dark:bg-gray-800 p-4 flex justify-between items-center shadow-md transition-all duration-300">
       <h1 className="text-xl font-bold text-gray-900 dark:text-white">Next.js App</h1>
+
       <div className="flex gap-4">
-        <a href="/" className="text-gray-900 dark:text-white">
-          Home
-        </a>
-        <a href="/about" className="text-gray-900 dark:text-white">
-          About
-        </a>
+        <a href="/" className="text-gray-900 dark:text-white transition-all">Home</a>
+        <a href="/about" className="text-gray-900 dark:text-white transition-all">About</a>
+        <a href="/card" className="text-gray-900 dark:text-white transition-all">Card</a>
 
         {mounted && (
           <button
-            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-            className="px-3 py-1 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="px-3 py-1 bg-gray-700 dark:bg-gray-300 text-white dark:text-black rounded border border-gray-500 dark:border-gray-400 transition-all duration-300"
           >
-            {resolvedTheme === "dark" ? "Light Mode" : "Dark Mode"}
+            {theme === "dark" ? "Light Mode" : "Dark Mode"}
           </button>
         )}
       </div>
     </nav>
   );
 }
+

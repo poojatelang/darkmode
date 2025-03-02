@@ -1,20 +1,46 @@
 
 
-
+"use client";
 import ThemeProvider from "@/components/ThemeProvider";
+import Navbar from "@/components/Navbar";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-white text-black dark:bg-gray-900 dark:text-white">
-        <ThemeProvider>
-          {children}
+      {/* <body className="bg-white text-black dark:bg-gray-900 dark:text-white"> */}
+      <body >
+      <ThemeProvider>
+          <Navbar /> 
+          <main className="p-4">{children}</main> {/* Page content changes here */}
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>
   );
 }
+
+
+
+// "use client";
+// import Navbar from "@/components/Navbar";
+// import Footer from "@/components/Footer";
+// import { ThemeProvider } from "next-themes";
+
+// export default function RootLayout({ children }: { children: React.ReactNode }) {
+//   return (
+//     <html lang="en">
+//       <body>
+//         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+//         <Navbar /> 
+// <main className="p-4">{children}</main> Page content changes here
+//  <Footer/>
+//         </ThemeProvider>
+//       </body>
+//     </html>
+//   );
+// }
 
 
 
